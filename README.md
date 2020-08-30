@@ -7,4 +7,4 @@
 - 以關鍵字搜尋特定餐廳
 
 ### 待解決部分
-search bar、fontawesome
+search bar路由設定，以及載入fontawesome
