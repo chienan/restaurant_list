@@ -22,18 +22,16 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
   res.render('show', { restaurant: restaurant })
 })
 
-app.get('/search', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
-})
 
-//出現錯誤的search bar路由設定
-//app.get('/search', (req, res) => {
-//  const keyword = req.query.keyword
-//  const restaurants = restaurantList.results.filter(restaurant => {
-//    return restaurant.title.includes(keyword)
-//  })
-//  res.render('index', { restaurants: restaurants })
-//})
+
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurants = restaurantList.results.filter(restaurant => {
+    //修正search bar路由設定：將restaurant.title改為restaurant.name
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { restaurants: restaurants, keyword: keyword })
+})
 
 
 // setting static files
