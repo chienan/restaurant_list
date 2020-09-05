@@ -5,6 +5,8 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
 
+const Restaurant = require('./models/restaurant') //載入Restaurane model
+
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
@@ -21,9 +23,15 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 
+//app.get('/', (req, res) => {
+//  res.render('index', { restaurants: restaurantList.results })
+//})
+
 app.get('/', (req, res) => {
-  //paste the restaurant data into 'index' partial template
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 
