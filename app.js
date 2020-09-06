@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
-
 const bodyParser = require('body-parser')
 
 const restaurantList = require('./restaurant.json')
@@ -95,17 +94,7 @@ app.post('/restaurants/:id/delete', (req, res) => {
 })
 
 
-
-app.get('/restaurants/:restaurant_id', (req, res) => {
-
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-
-  console.log('req.params.restaurant_id', req.params.restaurant_id)
-  res.render('show', { restaurant: restaurant })
-})
-
-
-
+//搜尋功能(尚未更新)
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   const restaurants = restaurantList.results.filter(restaurant => {

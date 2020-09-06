@@ -24,31 +24,38 @@
       <div class="card-columns">
 
         {{#each restaurants}}
+        <a href="./restaurants/{{  this._id  }}" class="text-secondary">
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+            <div class="card-body p-3">
+              <h6 class="card-title mb-1">{{this.name}}</h6>
 
-        <div class="card mb-3">
-          <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-          <div class="card-body p-3">
-            <h6 class="card-title mb-1">{{this.name}}</h6>
+              <div class="restaurant-category mb-1">
+                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+              </div>
 
-            <div class="restaurant-category mb-1">
-              <i class="fas fa-utensils pr-2"></i> {{this.category}}
+              <span class="badge badge-pill badge-danger font-weight-normal">
+                {{this.rating}}
+                <i class="fas fa-star fa-xs"></i>
+              </span>
+
             </div>
-
-            <span class="badge badge-pill badge-danger font-weight-normal">
-              {{this.rating}}
-              <i class="fas fa-star fa-xs"></i>
-            </span>
-
+        </a>
+        <div class="d-flex flex-row bd-highlight mb-3 justify-content-end align-items-center">
+          <div class="mr-3 edit-link">
+            <a href="./restaurants/{{  this._id  }}/edit" class="text-secondary">edit</a>
           </div>
-          <a href="./restaurants/{{  this._id  }}" class="text-secondary">detail</a>
-          <a href="./restaurants/{{  this._id  }}/edit" class="text-secondary">edit</a>
-          <form action="./restaurants/{{  this._id  }}/delete" method="POST" style="display: inline;"><button
-              type="submit">delete</button>
-          </form>
-        </div>
-        {{/each}}
 
+          <div class="mr-3 btn-delete">
+            <form action="./restaurants/{{  this._id  }}/delete" method="POST" style="display: inline;"><button
+                type="submit" class="btn btn-secondary btn-sm">delete</button>
+            </form>
+          </div>
+        </div>
       </div>
+      {{/each}}
+
     </div>
   </div>
+</div>
 </div>
