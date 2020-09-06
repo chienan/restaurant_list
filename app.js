@@ -5,9 +5,7 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
-const restaurantList = require('./restaurant.json')
-
-const Restaurant = require('./models/restaurant') //載入Restaurane model
+const Restaurant = require('./models/restaurant') //載入Restaurant model
 
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -26,10 +24,6 @@ app.set('view engine', 'handlebars')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-
-//app.get('/', (req, res) => {
-//  res.render('index', { restaurants: restaurantList.results })
-//})
 
 //瀏覽所有餐廳
 app.get('/', (req, res) => {
@@ -91,17 +85,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-})
-
-
-//搜尋功能(尚未更新)
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurants = restaurantList.results.filter(restaurant => {
-    //修正search bar路由設定：將restaurant.title改為restaurant.name
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
-  })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
 })
 
 
