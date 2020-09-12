@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row h-100 my-auto justify-content-center align-items-center text-center">
 
-    <form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+    <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
 
       <input type="text" placeholder="中文名稱" name="name" value="{{ restaurant.name }}" class="mb-2 form-control">
       <input type="text" placeholder="name in English" name="name_en" value="{{ restaurant.name_en }}"
