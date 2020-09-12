@@ -68,7 +68,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 
-app.post('/restaurants/:id', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   return Restaurant.findById(id)
@@ -82,7 +82,7 @@ app.post('/restaurants/:id', (req, res) => {
 
 
 //刪除特定餐廳
-app.post('/restaurants/:id', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
