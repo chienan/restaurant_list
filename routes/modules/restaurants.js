@@ -9,8 +9,13 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const name = req.body.name
-  return Restaurant.create({ name })
+  let { name, name_en, category, phone, image, location, rating, google_map, description } = req.body
+
+  if (!image.length) {
+    image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png'
+  }
+
+  return Restaurant.create({ name, name_en, category, phone, image, location, rating, google_map, description })
     .then(() => res.redirect('/'))
     .catch(error => console.log(console.log(error)))
 })
