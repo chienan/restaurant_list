@@ -59,6 +59,10 @@ header {
   white-space:nowrap;
 }
 
+.card-title-en {
+  font-size: 0.8rem;
+}
+
 .restaurant-category {
   color: #666666;
   font-size: 0.8rem;
