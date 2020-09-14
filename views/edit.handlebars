@@ -4,29 +4,28 @@
     <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
 
 
-      <input type="text" placeholder="中文名稱" name="name" value="{{ restaurant.name }}" class="mb-2 form-control"
-        style="width: 300px;">
+      <input type="text" placeholder="餐廳名稱（必填）" name="name" value="{{ restaurant.name }}" class="mb-2 form-control"
+        style="width: 300px;" required>
 
 
-      <input type="text" placeholder="name in English" name="name_en" value="{{ restaurant.name_en }}"
-        class="mb-2 form-control">
+      <input type="text" placeholder="英文名稱" name="name_en" value="{{ restaurant.name_en }}" class="mb-2 form-control">
 
-      <input type="text" placeholder="category" name="category" value="{{ restaurant.category }}"
-        class="mb-2 form-control">
+      <input type="text" placeholder="餐廳類型（必填） ex: 酒吧、義式、泰式" name="category" value="{{ restaurant.category }}"
+        class="mb-2 form-control" required>
 
-      <input type="text" placeholder="image" name="image" value="{{ restaurant.image }}" class="mb-2 form-control">
+      <input type="url" placeholder="圖片網址" name="image" value="{{ restaurant.image }}" class="mb-2 form-control">
 
-      <input type="text" placeholder="location" name="location" value="{{ restaurant.location }}"
-        class="mb-2 form-control">
+      <input type="text" placeholder="地址" name="location" value="{{ restaurant.location }}" class="mb-2 form-control">
 
-      <input type="text" placeholder="phone" name="phone" value="{{ restaurant.phone }}" class="mb-2 form-control">
+      <input type="tel" placeholder="電話" name="phone" value="{{ restaurant.phone }}" class="mb-2 form-control">
 
       <input type="text" placeholder="google_map" name="google_map" value="{{ restaurant.google_map }}"
         class="mb-2 form-control">
 
-      <input type="text" placeholder="rating" name="rating" value="{{ restaurant.rating }}" class="mb-2 form-control">
+      <input type="number" placeholder="評分 0 ~ 5（必填）" step="0.1" min="0" max="5" name="rating"
+        value="{{ restaurant.rating }}" class="mb-2 form-control" required>
 
-      <input type="text" placeholder="description" name="description" value="{{ restaurant.description }}"
+      <input type="text" placeholder="簡介" name="description" value="{{ restaurant.description }}"
         class="mb-2 form-control">
 
       <div class="d-flex flex-row bd-highlight mb-3 justify-content-center align-items-center">

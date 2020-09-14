@@ -3,15 +3,16 @@
 
     <form action="/restaurants" method="POST">
 
-      <input type="text" placeholder="中文名稱（必填）" name="name" class="mb-2 form-control" style="width: 300px;">
-      <input type="text" placeholder="name in English" name="name_en" class="mb-2 form-control">
-      <input type="text" placeholder="category" name="category" class="mb-2 form-control">
-      <input type="text" placeholder="image" name="image" class="mb-2 form-control">
-      <input type="text" placeholder="location" name="location" class="mb-2 form-control">
-      <input type="text" placeholder="phone" name="phone" class="mb-2 form-control">
+      <input type="text" placeholder="餐廳名稱（必填）" name="name" class="mb-2 form-control" style="width: 300px;" required>
+      <input type="text" placeholder="英文名稱" name="name_en" class="mb-2 form-control">
+      <input type="text" placeholder="餐廳類型（必填） ex: 酒吧、義式、泰式" name="category" class="mb-2 form-control" required>
+      <input type="url" placeholder="圖片網址" name="image" class="mb-2 form-control">
+      <input type="text" placeholder="地址" name="location" class="mb-2 form-control">
+      <input type="tel" placeholder="電話" name="phone" class="mb-2 form-control">
       <input type="text" placeholder="google_map" name="google_map" class="mb-2 form-control">
-      <input type="text" placeholder="rating" name="rating" class="mb-2 form-control">
-      <input type="text" placeholder="description" name="description" class="mb-2 form-control">
+      <input type="number" placeholder="評分 0 ~ 5（必填）" step="0.1" min="0" max="5" name="rating" class="mb-2 form-control"
+        required>
+      <input type="text" placeholder="簡介" name="description" class="mb-2 form-control">
 
       <button type="submit" class="btn btn-outline-secondary">Create</button>
     </form>
