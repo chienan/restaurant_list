@@ -31,6 +31,7 @@ router.get('/:id', (req, res) => {
 
 
 //修改特定餐廳
+
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -38,7 +39,6 @@ router.get('/:id/edit', (req, res) => {
     .then((restaurant) => res.render('edit', { restaurant }))
     .catch(error => console.log(console.log(error)))
 })
-
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
@@ -51,6 +51,7 @@ router.put('/:id', (req, res) => {
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
+
 
 
 //刪除特定餐廳
