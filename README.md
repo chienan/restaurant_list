@@ -27,14 +27,13 @@
 ### 安裝與使用方法
 
 - 下載專案
-    https://github.com/chienan/restaurant_list.git
+`https://github.com/chienan/restaurant_list.git`
 
 - 安裝Node Package Manager
-    npm install
+`npm install`
 
 - 新增種子資料
-    npm run seed
+`npm run seed`
 
 - 使用nodemon啟動伺服器／正常啟動
-    npm run dev / npm start
-
+`npm run dev / npm start`
