@@ -24,8 +24,6 @@ app.use(express.static('public'))
 app.use(routes)
 
 
-// setting static files
-
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

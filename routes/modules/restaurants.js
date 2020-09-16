@@ -20,6 +20,8 @@ router.post('/', (req, res) => {
     .catch(error => console.log(console.log(error)))
 })
 
+
+
 //瀏覽特定餐廳資訊
 router.get('/:id', (req, res) => {
   const id = req.params.id
@@ -31,7 +33,6 @@ router.get('/:id', (req, res) => {
 
 
 //修改特定餐廳
-
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -53,7 +54,6 @@ router.put('/:id', (req, res) => {
 })
 
 
-
 //刪除特定餐廳
 router.delete('/:id', (req, res) => {
   const id = req.params.id
@@ -62,6 +62,7 @@ router.delete('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
 
 
 module.exports = router
